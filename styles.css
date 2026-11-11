@@ -802,6 +802,88 @@ main {
   gap: 18px;
 }
 
+.mission-visuals {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(2, clamp(190px, 22vw, 290px));
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.mission-visual-card {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #d8d2c8;
+  box-shadow: 0 12px 28px rgba(32, 35, 31, 0.08);
+}
+
+.mission-visual-card--wide {
+  grid-column: 1 / span 5;
+  grid-row: 1 / span 2;
+}
+
+.mission-visual-card:nth-child(2) {
+  grid-column: 6 / span 4;
+  grid-row: 1;
+}
+
+.mission-visual-card:nth-child(3) {
+  grid-column: 10 / span 3;
+  grid-row: 1;
+}
+
+.mission-visual-card:nth-child(4) {
+  grid-column: 6 / span 3;
+  grid-row: 2;
+}
+
+.mission-visual-card--tall {
+  grid-column: 9 / span 4;
+  grid-row: 2;
+}
+
+.mission-visual-card::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 23, 19, 0.02) 28%,
+    rgba(20, 23, 19, 0.72) 100%
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.mission-visual-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 700ms var(--ease-out),
+    filter 500ms ease;
+}
+
+.mission-visual-card:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.06);
+}
+
+.mission-visual-card figcaption {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  left: 18px;
+  z-index: 1;
+  color: #fffdf9;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+
 .mission-card {
   position: relative;
   display: flex;
@@ -1134,6 +1216,74 @@ main {
   gap: 18px;
 }
 
+.venture-photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.venture-photo-kicker {
+  grid-column: 1 / -1;
+  margin: 0 0 2px;
+  color: var(--ventures-muted);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.venture-photo-card {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(32, 35, 31, 0.1);
+  border-radius: 6px;
+  background: #d8d2c8;
+  box-shadow: 0 16px 38px rgba(32, 35, 31, 0.12);
+}
+
+.venture-photo-card::after {
+  position: absolute;
+  inset: 30% 0 0;
+  background: linear-gradient(transparent, rgba(20, 23, 19, 0.72));
+  content: "";
+  pointer-events: none;
+}
+
+.venture-photo-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.55;
+  object-fit: cover;
+  transition: transform 650ms var(--ease-out);
+}
+
+.venture-photo-card:hover img {
+  transform: scale(1.045);
+}
+
+.venture-photo-card figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 20px;
+  bottom: 18px;
+  left: 20px;
+  color: #fffefa;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.venture-photo-card figcaption span {
+  display: block;
+  margin-bottom: 7px;
+  color: rgba(255, 254, 250, 0.76);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
 .venture-card {
   position: relative;
   display: flex;
@@ -1343,6 +1493,139 @@ main {
 .social-links a:hover,
 .social-links a:focus-visible {
   color: var(--ventures-accent);
+}
+
+.moments-section {
+  padding: clamp(88px, 10vw, 144px) 24px;
+  color: #20231f;
+  background:
+    radial-gradient(ellipse at 4% 92%, rgba(116, 125, 101, 0.1), transparent 30%),
+    #eeece5;
+}
+
+.moments-inner {
+  width: min(100%, 1320px);
+  margin: 0 auto;
+}
+
+.moments-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 48px;
+  margin-bottom: clamp(36px, 5vw, 64px);
+}
+
+.moments-kicker {
+  margin: 0 0 24px;
+  color: #77766f;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.moments-kicker span {
+  color: var(--accent-rust);
+}
+
+.moments-heading h2 {
+  margin: 0;
+  font-size: clamp(54px, 7.5vw, 96px);
+  font-weight: 500;
+  letter-spacing: -0.085em;
+  line-height: 0.86;
+}
+
+.moments-heading h2 span {
+  color: var(--accent-rust);
+}
+
+.moments-heading > p {
+  max-width: 350px;
+  margin: 0 0 4px;
+  color: #5f5e58;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(2, clamp(180px, 20vw, 270px));
+  gap: 14px;
+}
+
+.moment {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  background: #d6d1c7;
+}
+
+.moment::after {
+  position: absolute;
+  inset: 30% 0 0;
+  background: linear-gradient(transparent, rgba(20, 23, 19, 0.76));
+  content: "";
+  pointer-events: none;
+}
+
+.moment img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 650ms var(--ease-out);
+}
+
+.moment:hover img {
+  transform: scale(1.045);
+}
+
+.moment-feature {
+  grid-column: 1 / span 5;
+  grid-row: 1 / span 2;
+}
+
+.moment-audience {
+  grid-column: 6 / span 4;
+  grid-row: 1;
+}
+
+.moment-speakers {
+  grid-column: 10 / span 3;
+  grid-row: 1;
+}
+
+.moment-mentorship {
+  grid-column: 6 / span 3;
+  grid-row: 2;
+}
+
+.moment-youth {
+  grid-column: 9 / span 4;
+  grid-row: 2;
+}
+
+.moment figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  color: #fffefa;
+  font-size: clamp(13px, 1.4vw, 17px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.moment figcaption span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 254, 250, 0.76);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
 }
 
 .book-section {
@@ -2366,6 +2649,27 @@ main {
     gap: 14px;
   }
 
+  .mission-visuals {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+
+  .mission-visual-card,
+  .mission-visual-card--wide,
+  .mission-visual-card--tall,
+  .mission-visual-card:nth-child(2),
+  .mission-visual-card:nth-child(3),
+  .mission-visual-card:nth-child(4) {
+    grid-column: auto;
+    grid-row: auto;
+    aspect-ratio: 0.95;
+  }
+
+  .mission-visual-card--wide {
+    grid-column: span 2;
+    aspect-ratio: 1.55;
+  }
+
   .mission-card {
     min-height: 300px;
     padding: 26px;
@@ -2542,6 +2846,23 @@ main {
     gap: 14px;
   }
 
+  .venture-photo-gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .venture-photo-card img {
+    aspect-ratio: 1.45;
+  }
+
+  .venture-photo-card figcaption {
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
+    font-size: 14px;
+  }
+
   .venture-art,
   .venture-art svg {
     min-height: 170px;
@@ -2619,6 +2940,21 @@ main {
     bottom: -3%;
     height: 118%;
     transform: translate(-50%, 0);
+  }
+
+  .mission-visuals {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .mission-visual-card,
+  .mission-visual-card--wide,
+  .mission-visual-card--tall,
+  .mission-visual-card:nth-child(2),
+  .mission-visual-card:nth-child(3),
+  .mission-visual-card:nth-child(4) {
+    grid-column: auto;
+    aspect-ratio: 1.35;
   }
 
   .portrait-card {
@@ -2757,5 +3093,73 @@ main {
   .portrait-card:hover,
   .portrait-card:focus-visible {
     transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .moments-section {
+    padding: 72px 20px;
+  }
+
+  .moments-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .moments-heading h2 {
+    font-size: clamp(54px, 13vw, 78px);
+  }
+
+  .moments-heading > p {
+    max-width: 440px;
+    font-size: 14px;
+  }
+
+  .moments-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 10px;
+  }
+
+  .moment,
+  .moment-feature,
+  .moment-audience,
+  .moment-speakers,
+  .moment-mentorship,
+  .moment-youth {
+    grid-column: auto;
+    grid-row: auto;
+    aspect-ratio: 0.88;
+  }
+
+  .moment-feature {
+    grid-column: 1 / -1;
+    aspect-ratio: 1.45;
+  }
+
+  .moment figcaption {
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .moments-section {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .moments-grid {
+    gap: 8px;
+  }
+
+  .moment figcaption {
+    right: 9px;
+    bottom: 9px;
+    left: 9px;
+    font-size: 12px;
   }
 }
